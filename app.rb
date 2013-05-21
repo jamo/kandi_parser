@@ -5,6 +5,7 @@ enable  :sessions, :logging
 class App < Sinatra::Base
   get '/' do
     "#{request.inspect}"
+    $rack.info "asd"
   end
 
 
