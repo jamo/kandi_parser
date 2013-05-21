@@ -1,16 +1,18 @@
-require 'sinatra'
 set :root, File.dirname(__FILE__)
-enable  :sessions, :logging
 
 class App < Sinatra::Base
-  get '/' do
+  post '/' do
+    logger.info "asd"
     "#{request.inspect}"
   end
 
 
-  @repo_url = "https://github.com/jamox/Kandi.git"
-  post '/' do
-    push = JSON.parse(params[:payload])
-    `cd /home/jamo/sites/root/kandi/` # && git pull && cd referaatti/ && pdflatex template-fi.tex`
+  get '/' do
+    "aaa"
+    logger.warn "asd"
+    "bbb"
+    # push = JSON.parse(params[:payload])
+    a = Thread.new {`cd /home/jamo/sites/root/kandi/  && git pull && cd referaatti/ && pdflatex template-fi.tex` }
+    a.join
   end
 end

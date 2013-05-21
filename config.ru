@@ -1,11 +1,12 @@
+require 'rubygems'
 require 'sinatra'
+require 'logger'
 
 configure do
-  # logging is enabled by default in classic style applications,
-  # so `enable :logging` is not needed
-  file = File.new("logs/app.log", 'a+')
-  file.sync = true
-  use Rack::CommonLogger, file
+   enable :logging
+  #file = File.new("logs/asd.log", 'a+')
+  #file.sync = true
+  #use Rack::CommonLogger, file
 end
 
 require './app'
