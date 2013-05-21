@@ -1,17 +1,12 @@
 set :root, File.dirname(__FILE__)
 
 class App < Sinatra::Base
-  post '/' do
-    logger.info "asd"
+  get '/' do
     "#{request.inspect}"
   end
 
 
-  get '/' do
-    "aaa"
-    logger.warn "asd"
-    "bbb"
-    # push = JSON.parse(params[:payload])
+  post '/' do
     a = Thread.new {`cd /home/jamo/sites/root/kandi/  && git pull && cd referaatti/ && pdflatex template-fi.tex` }
     a.join
   end
