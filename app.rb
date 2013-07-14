@@ -7,7 +7,9 @@ class App < Sinatra::Base
 
 
   post '/' do
-    a = Thread.new {`cd /home/jamo/sites/root/kandi/  && git pull && cd referaatti/ && pdflatex template-fi.tex` }
+    a = Thread.new {`cd /home/jamo/sites/root/kandi/  && git pull && cd referaatti/ && pdflatex template-fi && bibtex template-fi && pdflatex template-fi && pdflatex template-fi` }
     a.join
   end
 end
+
+
